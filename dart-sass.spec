@@ -11,7 +11,7 @@ URL: https://sass-lang.com/dart-sass
 Source0: https://github.com/sass/dart-sass/archive/refs/tags/%{version}.tar.gz
 Source1: dart-pub-cache.tar.gz
 
-BuildRequires: dart git lib64buf
+BuildRequires: dart git buf
 
 %description
 Dart Sass is the primary implementation of Sass, which means it gets new
@@ -21,7 +21,7 @@ development workflows.
 
 %prep
 %setup -q -n dart-sass-%{version}
-tar -zxf %{SOURCE1} -C .
+tar -zxf %{SOURCE1} -C ~/
 dart pub get --offline
 
 %build
