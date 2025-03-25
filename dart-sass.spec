@@ -10,6 +10,7 @@ License: MIT
 URL: https://sass-lang.com/dart-sass
 Source0: https://github.com/sass/dart-sass/archive/refs/tags/%{version}.tar.gz
 Source1: dart-pub-cache.tar.gz
+Source2: protobuf-generated.tar.gz
 
 BuildRequires: dart git buf
 
@@ -23,10 +24,9 @@ development workflows.
 %setup -q -n dart-sass-%{version}
 tar -zxf %{SOURCE1} -C ~/
 dart pub get --offline
+tar -zxf %{SOURCE2} -C ./ --no-same-owner
 
 %build
-
-dart run grinder protobuf
 dart compile exe ./bin/sass.dart -o sass
 
 %install
